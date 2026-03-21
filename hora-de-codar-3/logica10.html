@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora de codar 3 - Lógica 10</title>
+</head>
+<body>
+<!--10 - Escreva um programa em que o usuário informe 10 valores e escreva quantos desses valores lidos estão entre os números 24 e 42 (incluindo os valores 24 e 42) e quantos deles estão fora deste intervalo.-->
+<h2>Informe 10 valores:</h2>
+  
+  <form id="valoresForm">
+    1: <input type="number" id="v1"> 2: <input type="number" id="v2"><br><br>
+    3: <input type="number" id="v3"> 4: <input type="number" id="v4"><br><br>
+    5: <input type="number" id="v5"> 6: <input type="number" id="v6"><br><br>
+    7: <input type="number" id="v7"> 8: <input type="number" id="v8"><br><br>
+    9: <input type="number" id="v9"> 10: <input type="number" id="v10"><br><br>
+    <button type="button" onclick="verificar()">Verificar</button>
+  </form>
+
+  <h3>Resultado:</h3>
+  <p id="resultado"></p>
+
+  <script>
+    function verificar() {
+      const valores = [
+        Number(document.getElementById("v1").value),
+        Number(document.getElementById("v2").value),
+        Number(document.getElementById("v3").value),
+        Number(document.getElementById("v4").value),
+        Number(document.getElementById("v5").value),
+        Number(document.getElementById("v6").value),
+        Number(document.getElementById("v7").value),
+        Number(document.getElementById("v8").value),
+        Number(document.getElementById("v9").value),
+        Number(document.getElementById("v10").value)
+      ];
+      
+      let dentro = 0;
+      let fora = 0;
+
+      for (let i = 0; i < valores.length; i++) {
+        if (valores[i] >= 24 && valores[i] <= 42) {
+          dentro++;
+        } else {
+          fora++;
+        }
+      }
+
+      document.getElementById("resultado").innerText = 
+        "Dentro do intervalo: " + dentro + " | Fora do intervalo: " + fora;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora de codar 3 - Lógica 7</title>
+</head>
+<body>
+<!--7 - Escreva um algoritmo para ler as notas de avaliações de um aluno, calcule e imprima a média (simples) desse aluno. Só devem ser aceitos valores válidos durante a leitura (0 a 10) para cada nota. São 6 notas ao total. Caso o valor informado para qualquer uma das notas esteja fora do limite estabelecido, deve ser solicitado um novo valor ao usuário. -->
+<h2>Informe as 6 notas do aluno (0 a 10):</h2>
+  
+  <form id="notasForm">
+    <label>Nota 1: <input type="number" id="n1" required></label><br><br>
+    <label>Nota 2: <input type="number" id="n2" required></label><br><br>
+    <label>Nota 3: <input type="number" id="n3" required></label><br><br>
+    <label>Nota 4: <input type="number" id="n4" required></label><br><br>
+    <label>Nota 5: <input type="number" id="n5" required></label><br><br>
+    <label>Nota 6: <input type="number" id="n6" required></label><br><br>
+    <button type="button" onclick="calcularMedia()">Calcular Média</button>
+  </form>
+
+  <h3>Resultado:</h3>
+  <p id="resultado"></p>
+
+  <script>
+    function calcularMedia() {
+      var soma = 0;
+      var valido = true;
+
+      for (var i = 1; i <= 6; i++) {
+        var nota = Number(document.getElementById("n" + i).value);
+        
+        if (nota < 0 || nota > 10 || document.getElementById("n" + i).value === "") {
+          alert("A nota " + i + " é inválida! Digite um valor entre 0 e 10.");
+          valido = false;
+          break;
+        }
+        soma += nota;
+      }
+
+      if (valido) {
+        var media = soma / 6;
+        document.getElementById("resultado").innerText = "A média simples das 6 notas é: " + media.toFixed(2);
+      }
+    }
+  </script>
+</body>
+</html>

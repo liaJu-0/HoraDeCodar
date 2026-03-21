@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora de codar 3 - Lógica 8</title>
+</head>
+<body>
+<!--8 - Ler um valor N e imprimir todos os valores inteiros entre 1 (inclusive) e N (inclusive). Considere que o N será sempre maior que ZERO. N  é um valor informado pelo usuário-->
+<h2>Imprimir de 1 até N:</h2>
+  
+  <form id="nForm">
+    <label>Informe o valor de N: <input type="number" id="valorN" min="1" required></label><br><br>
+    <button type="button" onclick="imprimirSequencia()">Imprimir</button>
+  </form>
+
+  <h3>Sequência:</h3>
+  <p id="resultado"></p>
+
+  <script>
+    function imprimirSequencia() {
+      var n = Number(document.getElementById("valorN").value);
+      var sequencia = "";
+
+      for (var i = 1; i <= n; i++) {
+        sequencia += i + (i < n ? ", " : "");
+      }
+
+      document.getElementById("resultado").innerText = sequencia;
+    }
+  </script>
+</body>
+</html>

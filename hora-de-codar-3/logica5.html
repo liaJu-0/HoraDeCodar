@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora de codar 3 - Lógica 5</title>
+</head>
+<body>
+<!--5 - Faça um algoritmo que calcule e escreva a média aritmética dos dois números inteiros informados pelo usuário e todos os números inteiros entre eles. Considere que o primeiro sempre será menor que o segundo.-->
+<h2>Informe dois valores (o primeiro deve ser menor que o segundo):</h2>
+  
+  <form id="valoresForm">
+    <label>Início: <input type="number" id="v1" required></label><br><br>
+    <label>Fim: <input type="number" id="v2" required></label><br><br>
+    <button type="button" onclick="mostrarResultados()">Calcular Média do Intervalo</button>
+  </form>
+
+  <h3>Resultado:</h3>
+  <p id="resultado"></p>
+
+  <script>
+    function mostrarResultados() {
+      var v1 = Number(document.getElementById("v1").value);
+      var v2 = Number(document.getElementById("v2").value);
+      
+      var soma = 0;
+      var contagem = 0;
+
+      for (var i = v1; i <= v2; i++) {
+        soma += i;
+        contagem++;
+      }
+
+      var media = soma / contagem;
+
+      document.getElementById("resultado").innerText = "A média entre os números informados é: " + media.toFixed(2);
+    }
+  </script>
+</body>
+</html>

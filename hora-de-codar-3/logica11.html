@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora de codar 3 - Lógica 11</title>
+</head>
+<body>
+<!--11 - Escreva um programa para imprimir todas as tabuadas de 1 a N. N será informado pelo usuário.-->
+<h2>Gerador de Tabuadas (1 a N):</h2>
+  
+  <form id="tabuadaForm">
+    <label>Informe o valor de N: <input type="number" id="valorN" min="1" required></label><br><br>
+    <button type="button" onclick="gerarTabuadas()">Gerar Tabuadas</button>
+  </form>
+
+  <h3>Tabuadas:</h3>
+  <div id="resultado" style="white-space: pre-wrap; font-family: monospace;"></div>
+
+  <script>
+    function gerarTabuadas() {
+      var n = Number(document.getElementById("valorN").value);
+      var display = "";
+
+      for (var i = 1; i <= n; i++) {
+        display += "Tabuada do " + i + ":\n";
+        for (var j = 1; j <= 10; j++) {
+            display += i + " x " + j + " = " + (i * j) + "\n";
+        }
+        display += "------------------\n";
+      }
+
+      document.getElementById("resultado").innerText = display;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora de codar 4 - Lógica 2</title>
+</head>
+<body>
+<!--2 - Planetas. Crie uma array de planetas que inclua "Terra", "Marte", "Plutão", "Vênus", "Júpiter", "Saturno"  e, em seguida, peça ao usuário para digitar o nome de um planeta.        Verifique se o planeta que o usuário informou está na array e informe ao usuário.-->
+    <script>
+        let planetas = ["Terra", "Marte", "Plutão", "Vênus", "Júpiter", "Saturno"];
+        let planeta = prompt("Digite o nome de um planeta para verificar se está na lista:");
+        if(planetas.includes(planeta)){
+            alert("O planeta " + planeta + " está na lista");
+        } else {
+            alert("O planeta " + planeta + " não está na lista");
+        }
+    </script>
+</body>
+</html>
