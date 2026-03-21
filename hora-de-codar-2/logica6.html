@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora de codar 2 - Lógica 6</title>
+</head>
+<body>
+<!--6. Faça um programa que receba quatro valores informados pelo usuário, mas informe somente o primeiro, o último e o maior de todos eles (considere que todos os números informados serão diferentes)-->
+  <h2>Informe quatro valores diferentes:</h2>
+  
+  <form id="valoresForm">
+    <label>Valor 1: <input type="number" id="v1" required></label><br><br>
+    <label>Valor 2: <input type="number" id="v2" required></label><br><br>
+    <label>Valor 3: <input type="number" id="v3" required></label><br><br>
+    <label>Valor 4: <input type="number" id="v4" required></label><br><br>
+    <button type="button" onclick="mostrarResultados()">Enviar</button>
+  </form>
+
+  <h3>Resultado:</h3>
+  <p id="resultado"></p>
+
+  <script>
+    function mostrarResultados() {
+     
+      var v1 = Number(document.getElementById("v1").value);
+      var v2 = Number(document.getElementById("v2").value);
+      var v3 = Number(document.getElementById("v3").value);
+      var v4 = Number(document.getElementById("v4").value);
+
+
+      var valores = [v1, v2, v3, v4];
+
+      var maior = Math.max(...valores);
+
+  
+      document.getElementById("resultado").innerText =
+        "Primeiro: " + valores[0] + 
+        " | Último: " + valores[valores.length - 1] + 
+        " | Maior: " + maior;
+    }
+  </script>
+</body>
+</html>

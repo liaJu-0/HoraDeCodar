@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora de codar 2 - Lógica 3</title>
+</head>
+<body>
+<!--3. Faça um programa para ler 3 valores (considere que não serão informados valores iguais) e escrever o maior deles.-->
+  <h2>Informe 3 valores diferentes:</h2>
+
+  <form>
+    <label>Valor 1: <input type="number" id="val1" required></label><br><br>
+    <label>Valor 2: <input type="number" id="val2" required></label><br><br>
+    <label>Valor 3: <input type="number" id="val3" required></label><br><br>
+    <button type="button" onclick="mostrarMaior()">Enviar</button>
+  </form>
+
+  <h3>Resultado:</h3>
+  <p id="resultado"></p>
+
+    <script>
+        function mostrarMaior() {
+            var v1 = Number(document.getElementById("val1").value);
+            var v2 = Number(document.getElementById("val2").value);
+            var v3 = Number(document.getElementById("val3").value);
+
+            var maior = Math.max(v1, v2, v3);
+
+            document.getElementById("resultado").innerText =
+                "O maior valor informado foi: " + maior;
+        }
+  </script>
+</body>
+</html>

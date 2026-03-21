@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora de codar 2 - Lógica 9</title>
+</head>
+<body>
+<!--9. Escreva um programa para ler o ano de nascimento de uma pessoa e escrever uma mensagem que diga se ela poderá ou não votar este ano (não é necessário considerar o mês em que ela nasceu).-->
+  <h2>Informe seu ano de nascimento:</h2>
+
+  <form>
+    <label>Ano de nascimento: <input type="number" id="ano"></label><br><br>
+    <button type="button" onclick="verificar()">Verificar</button>
+  </form>
+
+  <h3>Resultado:</h3>
+  <p id="resultado"></p>
+
+  <script>
+    function verificar() {
+
+      var anoNascimento = Number(document.getElementById("ano").value);
+
+      var anoAtual = new Date().getFullYear();
+
+      var idade = anoAtual - anoNascimento;
+
+      if (idade >= 16) {
+        document.getElementById("resultado").innerText =
+          "Você tem " + idade + " anos e já pode votar!";
+      } else {
+        document.getElementById("resultado").innerText =
+          "Você tem " + idade + " anos. Ainda não pode votar.";
+      }
+    }
+  </script>
+</body>
+</html>
+
+</body>
+</html>

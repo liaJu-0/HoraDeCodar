@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora de codar 2 - Lógica 8</title>
+</head>
+<body>
+<!--8. Escreva um programa que calcule a média de quatro números informados pelo usuário, mas somente se esses números forem maiores que 0 e menores que 10. No final, se a média for maior que cinco o usuário receberá uma mensagem "Você passou no teste". Em qualquer outra situação, ele receberá uma mensagem de "tente novamente"-->
+  <h2>Informe 4 valores de 0 à 10:</h2>
+
+  <form>
+    <label>Valor 1: <input type="number" id="v1"></label><br><br>
+    <label>Valor 2: <input type="number" id="v2"></label><br><br>
+    <label>Valor 3: <input type="number" id="v3"></label><br><br>
+    <label>Valor 4: <input type="number" id="v4"></label><br><br>
+    <button type="button" onclick="calcular()">Calcular</button>
+  </form>
+
+  <h3>Resultado:</h3>
+  <p id="resultado"></p>
+
+  <script>
+    function calcular() {
+
+      var v1 = Number(document.getElementById("v1").value);
+      var v2 = Number(document.getElementById("v2").value);
+      var v3 = Number(document.getElementById("v3").value);
+      var v4 = Number(document.getElementById("v4").value);
+
+      if (v1 > 0 && v1 < 10 &&
+          v2 > 0 && v2 < 10 &&
+          v3 > 0 && v3 < 10 &&
+          v4 > 0 && v4 < 10) {
+
+        var media = (v1 + v2 + v3 + v4) / 4;
+
+        if (media > 5) {
+          document.getElementById("resultado").innerText =
+            "Média: " + media + " | Você passou no teste!";
+        } else {
+          document.getElementById("resultado").innerText =
+            "Média: " + media + " | Tente novamente.";
+        }
+
+      } else {
+        document.getElementById("resultado").innerText =
+          "Todos os valores devem ser maiores que 0 e menores que 10.";
+           }
+    }
+  </script>
+</body>
+</html>

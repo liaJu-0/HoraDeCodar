@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora de codar 2 - Lógica 5</title>
+</head>
+<body>
+<!--5.  Faça um programa que leia 6 valores informados pelo usuário, calcule, exiba os números informados e escreva a média aritmética desses valores lidos.-->
+  <form id="valoresForm">
+    <label>Valor 1: <input type="number" id="v1" required></label><br><br>
+    <label>Valor 2: <input type="number" id="v2" required></label><br><br>
+    <label>Valor 3: <input type="number" id="v3" required></label><br><br>
+    <label>Valor 4: <input type="number" id="v4" required></label><br><br>
+    <label>Valor 5: <input type="number" id="v5" required></label><br><br>
+    <label>Valor 6: <input type="number" id="v6" required></label><br><br>
+    <button type="button" onclick="calcularMedia()">Resultado</button>
+  </form>
+
+  <h3>Resultado:</h3>
+  <p id="resultado"></p>
+
+  <script>
+    function calcularMedia() {
+      
+      var v1 = Number(document.getElementById("v1").value);
+      var v2 = Number(document.getElementById("v2").value);
+      var v3 = Number(document.getElementById("v3").value);
+      var v4 = Number(document.getElementById("v4").value);
+      var v5 = Number(document.getElementById("v5").value);
+      var v6 = Number(document.getElementById("v6").value);
+
+      
+      var valores = [v1, v2, v3, v4, v5, v6];
+
+      var soma = v1 + v2 + v3 + v4 + v5 + v6;
+
+      var media = soma / valores.length;
+
+      document.getElementById("resultado").innerText =
+        "Valores informados: " + valores.join(", ") + 
+        " | Média: " + media;
+    }
+  </script>
+</body>
+</html>

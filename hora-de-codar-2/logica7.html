@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora de codar 2 - Lógica 7</title>
+</head>
+<body>
+<!--7. Faça um programa que leia 6 números que o usuário vai informar. Todos os números lidos com valor inferior a 72 devem ser somados. Escreva o valor final da soma efetuada e também todos valores que o usuário informou.  -->
+  <h2>Informe 6 valores:</h2>
+
+  <form>
+    <label>Valor 1: <input type="number" id="v1" required></label><br><br>
+    <label>Valor 2: <input type="number" id="v2" required></label><br><br>
+    <label>Valor 3: <input type="number" id="v3" required></label><br><br>
+    <label>Valor 4: <input type="number" id="v4" required></label><br><br>
+    <label>Valor 5: <input type="number" id="v5" required></label><br><br>
+    <label>Valor 6: <input type="number" id="v6" required></label><br><br>
+    <button type="button" onclick="calcular()">Calcular</button>
+  </form>
+
+  <h3>Resultado:</h3>
+  <p id="resultado"></p>
+
+  <script>
+    function calcular() {
+      var v1 = Number(document.getElementById("v1").value);
+      var v2 = Number(document.getElementById("v2").value);
+      var v3 = Number(document.getElementById("v3").value);
+      var v4 = Number(document.getElementById("v4").value);
+      var v5 = Number(document.getElementById("v5").value);
+      var v6 = Number(document.getElementById("v6").value);
+
+      var valores = [v1, v2, v3, v4, v5, v6];
+
+      var soma = 0;
+      for (let i = 0; i < valores.length; i++) {
+        if (valores[i] < 72) {
+          soma = soma + valores[i];
+        }
+      }
+
+      document.getElementById("resultado").innerText =
+        "Valores informados: " + valores.join(", ") +
+        " | Soma dos valores menores que 72: " + soma;
+    }
+  </script>
+</body>
+</html>
