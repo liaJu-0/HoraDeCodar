@@ -1,0 +1,157 @@
+<html>
+
+<head>
+
+	<script>
+		var saldo = 8120.5; //Float
+
+		var nome = prompt('Qual o seu nome?');
+		alert('Olá, ' + nome + '! É um prazer ter você por aqui!');
+
+		function inicio() {
+
+			var escolha = parseInt(prompt('Selecione uma opção 1.) Saldo, 2.) Extrato, 3.) Saque, 4.) Depósito, 5.) Transferência, 6.) Sair'));
+
+			switch (escolha) {
+				case 1:
+					ver_saldo();
+					break;
+				case 2:
+					ver_extrato();
+					break;
+				case 3:
+					fazer_saque();
+					break;
+				case 4:
+					fazer_deposito();
+					break;
+				case 5:
+					fazer_transferencia();
+					break;
+				case 6:
+					sair();
+					break;
+				default:
+					erro();
+			}
+		}		
+
+		/*Sempre que o usuário for acessar o saldo, sacar, retirar o extrato ou transferir dinheiro é necessário que ele informe uma senha. Essa senha deve ser validada com uma condicional. A senha é 3589.
+		Caso a senha informada não seja a correta, é necessário chamar a função atual novamente. */
+		function ver_saldo() {
+			var senha = prompt('Informe a senha:');
+			if (senha === '3589') {
+				alert('Seu saldo atual é: ' + saldo);
+			} else {
+				alert('Senha incorreta. Tente novamente.');
+				ver_saldo();
+			}
+			inicio();
+		}
+
+		function ver_extrato() {
+			var senha = prompt('Informe a senha:');
+			if (senha === '3589') {
+				alert('Extrato bancário: \nSaldo atual: ' + saldo + '\nSaque: -50\nDepósito: +100\nTransferência: -30\nDeposito: +8000');
+			} else {
+				alert('Senha incorreta. Tente novamente.');
+				ver_extrato();
+			}
+			inicio();
+		}
+
+		function fazer_deposito() {
+			var deposito = parseFloat(prompt('Qual o valor para depósito?'));
+			if (isNaN(deposito) || deposito === '') {
+				alert('Por favor, informe um número:');
+				fazer_deposito();
+			} else if (deposito <= 0) {
+				alert('Operação não autorizada');
+				fazer_deposito();
+			} else {
+				saldo += deposito;
+				ver_saldo();
+			}
+			var senha = prompt('Informe a senha:');
+			if (senha !== '3589') {
+				alert('Senha incorreta. Tente novamente.');
+				fazer_deposito();
+			} else {
+				fazer_deposito();
+			}
+		}
+
+		function fazer_saque() {
+			var saque = parseFloat(prompt('Qual o valor para saque?'));
+			if (isNaN(saque) || saque === '') {
+				alert('Por favor, informe um número:');
+				fazer_saque();
+			} else if (saque > saldo || saque <= 0) {
+				alert('Operação não autorizada');
+				fazer_saque();
+			} else {
+				saldo -= saque;
+				ver_saldo();
+			}
+			var senha = prompt('Informe a senha:');
+			if (senha !== '3589') {
+				alert('Senha incorreta. Tente novamente.');
+				fazer_saque();
+			} else {
+				fazer_saque();
+			}
+		}
+
+		function fazer_transferencia() {
+			var conta = prompt('Informe o número da conta para transferência:');
+			if (isNaN(conta) || conta === '') {
+				alert('Por favor, informe um número de conta válido:');
+				fazer_transferencia();
+			} else {
+				var valor = parseFloat(prompt('Informe o valor para transferência:'));
+				if (isNaN(valor) || valor === '') {
+					alert('Por favor, informe um número para o valor da transferência:');
+					fazer_transferencia();
+				} else if (valor > saldo) {
+					alert('Operação não autorizada.');
+					fazer_transferencia();
+				} else {
+					saldo -= valor;
+					ver_saldo();
+				}
+			}
+			var senha = prompt('Informe a senha:');
+			if (senha !== '3589') {
+				alert('Senha incorreta. Tente novamente.');
+				fazer_transferencia();
+			} else {
+				fazer_transferencia();
+			}
+		}
+
+		function erro() {
+			alert('Opção inválida. Por favor, selecione uma opção válida: 1.) Saldo, 2.) Extrato, 3.) Saque, 4.) Depósito, 5.) Transferência, 6.) Sair');
+			inicio();
+		}
+//Quando o usuário escolher sair do sistema, exiba uma mensagem agradecendo por utilizar os serviços do banco: "{Nome}, foi um prazer ter você por aqui!".
+		function sair() {
+			var confirma = confirm('Você deseja sair?');
+			if (confirma) {
+				alert('Obrigado por utilizar nossos serviços, ' + nome + '! Foi um prazer ter você por aqui!');
+				window.close();
+			} else {
+				inicio();
+			}
+		}
+
+		
+		
+		inicio();
+	</script>
+</head>
+
+<body>
+
+</body>
+
+</html>
