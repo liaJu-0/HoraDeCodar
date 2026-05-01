@@ -18,12 +18,10 @@ function main_menu() {
             menu_hospedes();
             break;
         case 3: 
-            alert("Módulo de Eventos em construção...");
-            main_menu();
+            subprograma_eventos();
             break;
         case 4: 
-            alert("Módulo de Ar-Condicionado em construção...");
-            main_menu();
+            ar_condicionado(); 
             break;
         case 5: 
             alert("Módulo de Abastecimento em construção...");
