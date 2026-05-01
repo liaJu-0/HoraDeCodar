@@ -1,8 +1,8 @@
 function abastecimento() {
-    let wayne_alcool = parseFloat(prompt("Qual o valor do álcool no posto Wayne Oil?"));
-    let wayne_gasolina = parseFloat(prompt("Qual o valor da gasolina no posto Wayne Oil?"));
-    let stark_alcool = parseFloat(prompt("Qual o valor do álcool no posto Stark Petrol?"));
-    let stark_gasolina = parseFloat(prompt("Qual o valor da gasolina no posto Stark Petrol?"));
+    let wayne_alcool = lerNumero("Qual o valor do álcool no posto Wayne Oil?");
+    let wayne_gasolina = lerNumero("Qual o valor da gasolina no posto Wayne Oil?");
+    let stark_alcool = lerNumero("Qual o valor do álcool no posto Stark Petrol?");
+    let stark_gasolina = lerNumero("Qual o valor da gasolina no posto Stark Petrol?");
 
     if (isNaN(wayne_alcool) || isNaN(wayne_gasolina) || isNaN(stark_alcool) || isNaN(stark_gasolina)) {
         alert("Valores inválidos. Cancelando a operação.");

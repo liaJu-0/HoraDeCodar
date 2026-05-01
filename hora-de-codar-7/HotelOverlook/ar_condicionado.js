@@ -7,11 +7,11 @@ function ar_condicionado() {
         let nome_empresa = prompt("Qual o nome da empresa?");
         if (!nome_empresa) break;
 
-        let valor_por_aparelho = parseFloat(prompt("Valor por aparelho:"));
-        let quantidade = parseInt(prompt("Quantidade de aparelhos:"));
-        let percentual_desconto = parseFloat(prompt("Desconto (%):"));
-        let qtd_minima_desconto = parseInt(prompt("Número mínimo de aparelhos para desconto:"));
-        let deslocamento = parseFloat(prompt("Valor do deslocamento:"));
+        let valor_por_aparelho = lerNumero("Valor por aparelho:");
+        let quantidade = lerNumero("Quantidade de aparelhos:");
+        let percentual_desconto = lerNumero("Desconto (%):");
+        let qtd_minima_desconto = lerNumero("Número mínimo de aparelhos para desconto:");
+        let deslocamento = lerNumero("Valor do deslocamento:");
 
         if (isNaN(valor_por_aparelho) || isNaN(quantidade)) {
             alert("Valores inválidos. A cancelar o registo desta empresa.");
@@ -27,7 +27,6 @@ function ar_condicionado() {
         }
 
         let valor_total = (subtotal - valor_desconto) + deslocamento;
-        let total_fmt = valor_total.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
 
         let resumo = "[Ar-Condicionado]\n" +
             "Empresa: " + nome_empresa + "\n" +
@@ -36,7 +35,7 @@ function ar_condicionado() {
             "Desconto (%): " + percentual_desconto + "\n" +
             "Mínimo para desconto: " + qtd_minima_desconto + "\n" +
             "Deslocamento: " + deslocamento + "\n" +
-            "Total: " + total_fmt;
+            "Total: " + formatarMoeda(valor_total);
 
         alert(resumo);
 
@@ -49,8 +48,7 @@ function ar_condicionado() {
     }
 
     if (empresa_menor_valor !== "") {
-        let menor_fmt = menor_valor.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
-        alert("Melhor orçamento: " + empresa_menor_valor + " - " + menor_fmt);
+        alert("Melhor orçamento: " + empresa_menor_valor + " - " + formatarMoeda(menor_valor));
     } else {
         alert("Nenhum orçamento válido foi registado.");
     }

@@ -8,7 +8,7 @@ function menu_hospedes() {
         "6. Remover cadastro\n" +
         "7. Voltar";
 
-    let opcao = parseInt(prompt(texto_menu));
+    let opcao = lerNumero(texto_menu);
 
     switch (opcao) {
         case 1: cadastrar_hospede(); break;
@@ -17,7 +17,7 @@ function menu_hospedes() {
         case 4: listar_hospedes(); break;
         case 5: atualizar_hospede(); break;
         case 6: remover_hospede(); break;
-        case 7: main_menu(); break; // Volta pro menu principal
+        case 7: main_menu(); break;
         default:
             alert("Opção inválida.");
             menu_hospedes();
@@ -32,18 +32,16 @@ function cadastrar_hospede() {
     }
 
     let nome_novo = prompt("Nome do hóspede:");
-    if (!nome_novo) return menu_hospedes(); // Se cancelar ou deixar vazio
+    if (!nome_novo) return menu_hospedes();
 
     let existe = lista_hospedes.find(hospede => hospede.nome.toLowerCase() === nome_novo.toLowerCase());
 
     if (existe) {
         alert("Hóspede já cadastrado");
     } else {
-        let data_atual = new Date().toLocaleString('pt-BR');
-        
         lista_hospedes.push({
             nome: nome_novo,
-            data: data_atual
+            data: obterDataHoraAtual()
         });
         alert("Operação realizada com sucesso");
     }
@@ -66,7 +64,6 @@ function pesquisar_exato() {
 
 function pesquisar_prefixo() {
     let prefixo = prompt("Informe o início do nome (prefixo):").toLowerCase();
-    
     let resultados = lista_hospedes.filter(hospede => hospede.nome.toLowerCase().startsWith(prefixo));
 
     if (resultados.length > 0) {
@@ -101,8 +98,7 @@ function listar_hospedes() {
 
 function atualizar_hospede() {
     lista_hospedes.sort((a, b) => a.nome.localeCompare(b.nome));
-    
-    let indice = parseInt(prompt("Informe o índice [número] do hóspede que deseja atualizar:"));
+    let indice = lerNumero("Informe o índice [número] do hóspede que deseja atualizar:");
 
     if (isNaN(indice) || indice < 0 || indice >= lista_hospedes.length) {
         alert("Índice inválido.");
@@ -110,7 +106,7 @@ function atualizar_hospede() {
         let novo_nome = prompt("Informe o novo nome para " + lista_hospedes[indice].nome + ":");
         if (novo_nome) {
             lista_hospedes[indice].nome = novo_nome;
-            lista_hospedes[indice].data = new Date().toLocaleString('pt-BR') + " (Atualizado)";
+            lista_hospedes[indice].data = obterDataHoraAtual() + " (Atualizado)";
             alert("Operação realizada com sucesso");
         }
     }
@@ -120,8 +116,7 @@ function atualizar_hospede() {
 
 function remover_hospede() {
     lista_hospedes.sort((a, b) => a.nome.localeCompare(b.nome));
-
-    let indice = parseInt(prompt("Informe o índice [número] do hóspede que deseja remover:"));
+    let indice = lerNumero("Informe o índice [número] do hóspede que deseja remover:");
 
     if (isNaN(indice) || indice < 0 || indice >= lista_hospedes.length) {
         alert("Índice inválido.");

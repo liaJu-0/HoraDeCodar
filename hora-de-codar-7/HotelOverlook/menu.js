@@ -27,8 +27,7 @@ function main_menu() {
             abastecimento(); 
             break;
         case 6: 
-            alert("Módulo de Relatórios em construção...");
-            main_menu();
+            gerar_relatorios(); 
             break;
         case 7: 
             alert("Muito obrigado e até logo, " + nome_usuario + ".");
