@@ -15,8 +15,7 @@ function main_menu() {
             reserva_quartos();
             break;
         case 2: 
-            alert("Módulo de Cadastro em construção...");
-            main_menu();
+            menu_hospedes();
             break;
         case 3: 
             alert("Módulo de Eventos em construção...");
