@@ -24,8 +24,7 @@ function main_menu() {
             ar_condicionado(); 
             break;
         case 5: 
-            alert("Módulo de Abastecimento em construção...");
-            main_menu();
+            abastecimento(); 
             break;
         case 6: 
             alert("Módulo de Relatórios em construção...");
